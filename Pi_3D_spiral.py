@@ -42,7 +42,7 @@ def calculate_spiral_coords(theta, a, b):
 # Infinite loop for continuous spiral
 while True:
     for i in range(num_segments):
-        digit = int(pi_digits[i])
+        digit = int(pi_digits[i % num_segments])  # Loop through the digits of Pi
 
         # Get color from the colormap
         color = colors[digit]
@@ -61,11 +61,4 @@ while True:
         theta += theta_increment
 
         # Pause to visualize the drawing
-        plt.pause(0.01)
-
-    # Clear the axis for the next loop
-    ax.clear()
-    ax.set_axis_off()
-
-# Show the Pi Spiral
-plt.show()
+        plt.pause(0.001)
